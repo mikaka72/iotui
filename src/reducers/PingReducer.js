@@ -10,5 +10,4 @@ export default function PingReducer(state = initialState.pingsExecuted, action){
         return state;
     }
 
-    return state;
 }

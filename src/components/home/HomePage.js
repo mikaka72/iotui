@@ -18,13 +18,7 @@ class HomePage extends React.Component{
 
     onPingClick(event, data){
         const {pingsExecuted} = this.props;
-        toastr.info("ping " + pingsExecuted);
-        //store.dispatch(PingActions.ping);
         this.props.actions.pingRequest();
-        
-    
-        //axios.get('https://iotping.herokuapp.com/ping');
-        
     }
 
     render(){
@@ -32,6 +26,7 @@ class HomePage extends React.Component{
         return(
             <Segment raised>
                  <h1>Ping page</h1>
+                 <h2>Count {this.props.pingsExecuted}</h2>
                     <Button
                         onClick={this.onPingClick} 
                     >Ping 
@@ -40,9 +35,6 @@ class HomePage extends React.Component{
             
         );
     }
-
-   
-
 }
 
 HomePage.propTypes = {
@@ -64,11 +56,5 @@ function mapDispatchToProps(dispatch){
 }
 
 
-
 export default connect(mapStateToProps, mapDispatchToProps) (HomePage);
 
-/*<div className="jumbotron">
-                <h1>Admin page</h1>
-                <p> React and redux web apps.. </p>
-                <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
-            </div>*/
